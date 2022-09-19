@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Identity Particulars</h2>
+        <section>
+            <div>
+                <p>Family Name :</p>
+                <p>{{ responseFromApi?.name }} </p>
+            </div>
+            <div>
+                <p>Forename :</p>
+                <p>{{ responseFromApi?.forename }} </p>
+            </div>
+            <div>
+                <p>Gender :</p>
+                <p>{{ responseFromApi?.sex_id == "M" ? "Male" : (responseFromApi?.sex_id == "F" ? "Female" : "Unknown") }} </p>
+            </div>
+            <div>
+                <p>Date of Birth :</p>
+                <p>{{ responseFromApi?.date_of_birth }} ({{ 2022 - (+responseFromApi?.date_of_birth.slice(0, 4))}} Years Old) </p>
+            </div>
+            <div>
+                <p>Place of Birth :</p>
+                <p>{{ responseFromApi?.place_of_birth }} </p>
+            </div>
+            <div>
+                <p>Nationality :</p>
+                <p> {{ responseFromApi?.nationalities[0] }} </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Physical Description</h2>
+            
+            <div>
+                <p>Colour of Hair</p>
+                <p> {{ responseFromApi?.hairs_id ? responseFromApi?.hairs_id : "Unknown" }} </p>
+            </div>
+            <div>
+                <p>Colour of Eyes</p>
+                <p> {{ responseFromApi?.eyes_colors_id ? responseFromApi?.eyes_colors_id : "Unknown" }} </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Details</h2>
+            <div>
+                <p>Language(s) Spoken</p>
+                <p> {{ responseFromApi?.languages_spoken_ids }} </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Charges</h2>
+            <div>
+                <p> {{ responseFromApi?.arrest_warrants[0]["charge"] }} </p>
+                <p> {{ responseFromApi?.arrest_warrants[0]["charge_translation"] ? responseFromApi?.arrest_warrants[0]["charge_translation"] : "Unknown" }} </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+

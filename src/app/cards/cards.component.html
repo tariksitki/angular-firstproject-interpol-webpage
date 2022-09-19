@@ -1,0 +1,21 @@
+
+<div class="cards-container">
+    <div class="card" style="width: 18rem" *ngFor="let person of responseFromApi?._embedded?.notices">
+    <img src="{{ person._links.thumbnail.href }}" class="card-img-top" alt="person-image" />
+    <div class="card-body">
+      <h6 class="card-title">{{ person.name }}</h6>
+      <h6 class="card-title">{{ person.forename }}</h6>
+      <p class="card-text">
+        {{ 2022 - (+person.date_of_birth.slice(0, 4)) }} Years Old
+      </p>
+      <p> {{ person?.nationalities && person?.nationalities[0] }} </p>
+      <!-- <p *ngFor="let item of countryListArray" > 
+             
+      </p> -->
+      <!-- <a routerLink="['/details', {person} ]" class="btn btn-primary">Go somewhere</a> -->
+      <a [routerLink]="['/details', person?.entity_id, { state : person.entity_id } ]">Go somewhere</a>
+      <!-- <a routerLink="details/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"></a> -->
+      <!-- <button class="btn btn-primary" (click)="goToDetails()">Go To Details</button> -->
+    </div>
+  </div>
+</div>

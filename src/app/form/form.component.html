@@ -1,0 +1,128 @@
+
+
+<!-- radio larin bilgisini gönderme sebebi radio larda yazdigimiz ngModel -->
+<form
+  class="form"
+  #myForm="ngForm"
+  (submit)="
+    templateForm(
+      lastname.value,
+      firstname.value,
+      nationality.value,
+      myForm.value,
+      ageMin.value,
+      ageMax.value,
+      arrestWarrantCountryId.value,
+      keyword.value
+    )
+  "
+  novalidate
+>
+  <h1>Filter Criteria</h1>
+
+  <label for="name">Lastname</label> <br />
+  <input #lastname type="text" id="name" name="lastname" />
+  <br /><br />
+
+  <label for="firstname">Firstname</label> <br />
+  <input #firstname type="text" id="firstname" name="firstname" />
+  <br /><br />
+
+  <label for="nationality">Nationality</label> <br />
+  <select #nationality name="nationality" id="nationality">
+    <option value=""></option>
+    <option value="AF">Afghanistan</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+  </select>
+
+  <br /><br />
+  <p>Gender</p>
+  <input
+    class="radio-button"
+    type="radio"
+    name="gender"
+    id="all"
+    value=""
+    ngModel
+  />
+  <label for="all">All</label> <br />
+
+  <input
+    class="radio-button"
+    type="radio"
+    name="gender"
+    id="female"
+    value="F"
+    ngModel
+  />
+  <label for="female">Female</label> <br />
+
+  <input
+    class="radio-button"
+    type="radio"
+    name="gender"
+    id="male"
+    value="M"
+    ngModel
+  />
+  <label for="male">Male</label> <br />
+
+  <input
+    class="radio-button"
+    type="radio"
+    name="gender"
+    id="unknown"
+    value="U"
+    ngModel
+  />
+  <label for="unknown">Unknown</label> <br />
+  <br />
+
+  <label for="">Current Age</label> <br />
+  <input #ageMin type="number" name="ageMin" id="ageMin" />
+  <span>to</span>
+  <input #ageMax type="number" name="ageMax" id="ageMax" />
+
+  <br /><br />
+
+  <label for="arrestWarrantCountryId">Wanted By</label> <br />
+  <select
+    #arrestWarrantCountryId
+    name="arrestWarrantCountryId"
+    id="arrestWarrantCountryId"
+  >
+    <option value=""></option>
+    <option value="AF">Afghanistan</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+  </select>
+
+  <br /><br />
+  <label for="keyword">Keyword</label> <br />
+  <input #keyword type="text" name="keyword" id="keyword" />
+
+  <br /><br />
+
+  <!-- <input
+    type="submit"
+    value="Search"
+    (click)="getConsole($event, name.value, firstname.value, nationality.value)"
+  /> -->
+
+  <button type="submit" class="">Find out gender</button>
+</form>
+
+
+<!-- <ul class="list-group">
+  <li 
+      *ngFor="let post of posts"
+      class="list-group-item">
+      {{ post.title }}
+  </li>
+</ul> -->
+
