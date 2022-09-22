@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getPosts();
   }
+    // receive value from child component(from form Component)
+  receiveValue($event : any) {
+    this.endpoint = $event;
+    this.getPosts();
+  }
 
   getPosts() {
     // hier trigger a method from postService

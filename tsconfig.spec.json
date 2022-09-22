@@ -13,6 +13,12 @@
   ],
   "include": [
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+    "src/**/*.d.ts",
+  ],
+    // or this code
+  // "include": [
+  //   "**/**/*.spec.ts",
+  //   "**/**/*.d.ts",
+  //   "**/**/*.ts"
+  // ]
 }

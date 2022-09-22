@@ -1,5 +1,3 @@
-
-
 <!-- radio larin bilgisini gönderme sebebi radio larda yazdigimiz ngModel -->
 <form
   class="form"
@@ -18,7 +16,7 @@
   "
   novalidate
 >
-  <h1>Filter Criteria</h1>
+  <h1 class="form-header">{{ title }}</h1>
 
   <label for="name">Lastname</label> <br />
   <input #lastname type="text" id="name" name="lastname" />
@@ -47,6 +45,8 @@
     id="all"
     value=""
     ngModel
+    checked
+    #gender
   />
   <label for="all">All</label> <br />
 
@@ -114,9 +114,32 @@
     (click)="getConsole($event, name.value, firstname.value, nationality.value)"
   /> -->
 
-  <button type="submit" class="">Find out gender</button>
+  <button
+    type="submit"
+    class=""
+    (click)="
+      templateForm(
+        lastname.value,
+        firstname.value,
+        nationality.value,
+        myForm.value,
+        ageMin.value,
+        ageMax.value,
+        arrestWarrantCountryId.value,
+        keyword.value
+      );
+      lastname.value = '';
+      firstname.value = '';
+      nationality.value = '';
+      ageMin.value = '';
+      ageMax.value = '';
+      arrestWarrantCountryId.value = '';
+      keyword.value = ''
+    "
+  >
+    Find out gender
+  </button>
 </form>
-
 
 <!-- <ul class="list-group">
   <li 
@@ -125,4 +148,3 @@
       {{ post.title }}
   </li>
 </ul> -->
-

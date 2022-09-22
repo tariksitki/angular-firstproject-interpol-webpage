@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AppComponent } from '../app-component/app.component';
 import { PostService } from '../services/post.service';
 
@@ -11,8 +11,12 @@ export class FormComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   // posts: any;
-  endpoint : any;
-  responseFromApi : any;
+  title = 'Filter Criteria';
+  endpoint: any;
+  responseFromApi: any;
+
+  // to send data to home.component: (from child to parent component)
+  @Output() formEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
     // this.getPosts();
@@ -28,22 +32,32 @@ export class FormComponent implements OnInit {
     arrestWarrantCountryId: string,
     keyword: string
   ) {
-
-    this.endpoint = `?${firstname && `forename=${firstname}`}${lastname && `&name=${lastname}`}${nationality && `&nationality=${nationality}`}${value.gender && `&sexId=${value.gender}`}${ageMin && `&ageMin=${ageMin}`}${ageMax && `&ageMax=${ageMax}`}${arrestWarrantCountryId &&`&arrestWarrantCountryId=${arrestWarrantCountryId}`}${keyword && `&freeText=${keyword}`}&page=1&resultPerPage=160`;
+    this.endpoint = `?${firstname && `forename=${firstname}`}${
+      lastname && `&name=${lastname}`
+    }${nationality && `&nationality=${nationality}`}${
+      value.gender && `&sexId=${value.gender}`
+    }${ageMin && `&ageMin=${ageMin}`}${ageMax && `&ageMax=${ageMax}`}${
+      arrestWarrantCountryId &&
+      `&arrestWarrantCountryId=${arrestWarrantCountryId}`
+    }${keyword && `&freeText=${keyword}`}&page=1&resultPerPage=160`;
 
     // this.getPosts();
+    // console.log(this.endpoint)
+
+      /// send data from child component to parent component
+    this.formEvent.emit(this.endpoint)
   }
 
-  // getPosts() {
-  //   // hier trigger a method from postService
-  //   this.postService.getPosts(this.endpoint).subscribe({
-  //     next: (response) => {
-  //       this.responseFromApi = response;
-  //       console.log(this.responseFromApi);
-  //     },
-  //     error: (error) => {
-  //       console.log(error);
-  //     },
-  //   });
-  // }
+  getPosts() {
+    // hier trigger a method from postService
+    this.postService.getPosts(this.endpoint).subscribe({
+      next: (response) => {
+        this.responseFromApi = response;
+        console.log(this.responseFromApi);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
 }

@@ -2,7 +2,6 @@ import { Inject, Injectable } from '@angular/core';
 
 // our code
 import { HttpClient } from '@angular/common/http';
-import { FormComponent } from '../form/form.component';
 
 
 @Injectable({
@@ -18,6 +17,8 @@ export class PostService {
     public httpClient: HttpClient
   ) {} // our code
 
+  // apiUrl = 'https://ws-public.interpol.int/notices/v1/red';
+
   // get method:
   getPosts(endpoint: any) {
     // bu method bir parametre alacak ve url in sonuna eklenecek
@@ -32,12 +33,10 @@ export class PostService {
   ///////// get details:
 
   getDetails(endpoint: any) {
-    // bu method bir parametre alacak ve url in sonuna eklenecek
-
     return (
       // console.log(`${this.apiUrl}${endpoint}`),
 
-      this.httpClient.get(`${this.apiUrl}/${endpoint ? endpoint : ""}`)
+      this.httpClient.get(`${this.apiUrl}/${endpoint ? endpoint : ''}`)
     );
   }
 }

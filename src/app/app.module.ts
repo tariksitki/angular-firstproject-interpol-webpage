@@ -13,9 +13,9 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [AppComponent, CardsComponent, FormComponent, DetailsComponent, HomeComponent],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
   ],
   providers: [

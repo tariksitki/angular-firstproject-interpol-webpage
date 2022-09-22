@@ -1,0 +1,29 @@
+
+Önemli:
+app component i ilk olusturdugumuzda title isimli bir degiskeni geliyor Bu app component in test kodlari icinde de yer aliyor. eger bi title i silersek test kodlarini güncellemezsek hata aliyoruz. 
+
+
+Integration Test:  test a component with external resources. (örnegin database ile yada api url ile test)
+
+unit test = component test 
+integration test = component + template test 
+
+clean coding Practices:
+small functions/methods 
+Proper naming
+Single Responsibility
+
+it icerisindeki test isimleri bizim yazdigimiz tanimlamalar. Ahmet de olabilir. ""  icindeki aciklamalar.
+
+
+
+
+
+
+Api ye cok istek attigimiz icin red aldik. Bu nedenle;
+ana dizinde  proxy.config.json adinda dosya olusturduk. 
+icindeki kodlari yazdik. 
+ve daha sonra package.json dosyasinda start kismini degistirdik. 
+"start": "ng serve --proxy-config proxy.conf.json",
+
+ve projemizi yeniden baslattik 
