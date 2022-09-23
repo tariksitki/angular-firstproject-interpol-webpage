@@ -42,22 +42,22 @@ export class FormComponent implements OnInit {
     }${keyword && `&freeText=${keyword}`}&page=1&resultPerPage=160`;
 
     // this.getPosts();
-    // console.log(this.endpoint)
+    console.log(this.endpoint)
 
       /// send data from child component to parent component
     this.formEvent.emit(this.endpoint)
   }
 
-  getPosts() {
-    // hier trigger a method from postService
-    this.postService.getPosts(this.endpoint).subscribe({
-      next: (response) => {
-        this.responseFromApi = response;
-        console.log(this.responseFromApi);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
+  // getPosts() {
+  //   // hier trigger a method from postService
+  //   this.postService.getPosts(this.endpoint).subscribe({
+  //     next: (response) => {
+  //       this.responseFromApi = response;
+  //       console.log(this.responseFromApi);
+  //     },
+  //     error: (error) => {
+  //       console.log(error);
+  //     },
+  //   });
+  // }
 }

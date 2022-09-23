@@ -17,11 +17,12 @@ export class CardsComponent implements OnInit {
 
   @Input() responseFromApi: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   // goToDetails() {
   //   this.router.navigate(["/details"])
   // }
 
-  
 }

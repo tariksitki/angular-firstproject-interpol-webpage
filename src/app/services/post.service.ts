@@ -39,4 +39,13 @@ export class PostService {
       this.httpClient.get(`${this.apiUrl}/${endpoint ? endpoint : ''}`)
     );
   }
+
+  /////// get images:
+  getImages(endpoint: any) {
+    return (
+      // console.log(`${this.apiUrl}${endpoint}`),
+
+      this.httpClient.get(`${this.apiUrl}/${endpoint ? endpoint : ''}`)
+    );
+  }
 }

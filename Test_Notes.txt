@@ -27,3 +27,11 @@ ve daha sonra package.json dosyasinda start kismini degistirdik.
 "start": "ng serve --proxy-config proxy.conf.json",
 
 ve projemizi yeniden baslattik 
+
+
+
+
+
+
+
+// "browserTarget": "project:build:production"

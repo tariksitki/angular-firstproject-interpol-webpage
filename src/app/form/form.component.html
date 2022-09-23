@@ -12,7 +12,14 @@
       ageMax.value,
       arrestWarrantCountryId.value,
       keyword.value
-    )
+    );
+      lastname.value = '';
+      firstname.value = '';
+      nationality.value = '';
+      ageMin.value = '';
+      ageMax.value = '';
+      arrestWarrantCountryId.value = '';
+      keyword.value = '';
   "
   novalidate
 >
@@ -117,25 +124,7 @@
   <button
     type="submit"
     class=""
-    (click)="
-      templateForm(
-        lastname.value,
-        firstname.value,
-        nationality.value,
-        myForm.value,
-        ageMin.value,
-        ageMax.value,
-        arrestWarrantCountryId.value,
-        keyword.value
-      );
-      lastname.value = '';
-      firstname.value = '';
-      nationality.value = '';
-      ageMin.value = '';
-      ageMax.value = '';
-      arrestWarrantCountryId.value = '';
-      keyword.value = ''
-    "
+    
   >
     Find out gender
   </button>
@@ -148,3 +137,5 @@
       {{ post.title }}
   </li>
 </ul> -->
+
+
