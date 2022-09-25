@@ -4,30 +4,46 @@
     style="width: 18rem"
     *ngFor="let person of responseFromApi?._embedded?.notices"
   >
-    <div *ngIf="responseFromApi?.total != 0">
+    <!-- <div *ngIf="responseFromApi?.total != 0"> -->
       <!-- <img
         src="{{ person?._links?.thumbnail?.href }}"
         class="card-img-top"
         alt="person-image"
       /> -->
+
+      <img
+        src="../../assets/avatar.jpg"
+        class="card-img-top"
+        alt="person-image"
+      />
       <div class="card-body">
         <h6 class="card-title">{{ person?.name }}</h6>
         <h6 class="card-title">{{ person?.forename }}</h6>
-        <p class="card-text">
-          {{ 2022 - +person.date_of_birth.slice(0, 4) }} Years Old
-        </p>
-        <p>{{ person?.nationalities && person?.nationalities[0] }}</p>
+        <div>
+          <span translate class="card-text card-name">
+          {{ 2022 - +person.date_of_birth.slice(0, 4) }} 
+        </span> 
+        <span translate>Years Old</span>
+        </div>
+
+        <div>
+          <span translate>Country</span>
+          <span translate> :  {{ person?.nationalities ? person?.nationalities[0] : "Unknown"}}</span>
+        </div>
         <!-- <p *ngFor="let item of countryListArray" > 
              
       </p> -->
         <!-- <a routerLink="['/details', {person} ]" class="btn btn-primary">Go somewhere</a> -->
         <a
+          class="card-detail-button"
           [routerLink]="[
             '/details',
             person?.entity_id,
             { state: person.entity_id }
           ]"
-          >Go somewhere</a
+          >
+            <button translate>Go To Detail</button>
+          </a
         >
         <!-- <a routerLink="details/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"></a> -->
         <!-- <button class="btn btn-primary" (click)="goToDetails()">Go To Details</button> -->
@@ -35,7 +51,7 @@
     </div>
 
     <div *ngIf="responseFromApi?._embedded?.notices.length == 0">
-      <h1>There is No Response</h1>
+      <h1 translate >There are no results according to your search criteria</h1>
     </div>
-  </div>
+  <!-- </div> -->
 </div>

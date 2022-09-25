@@ -6,6 +6,9 @@ import { FormComponent } from './form.component';
 import { DebugElement } from '@angular/core'; // for passing to dom elements
 import { HttpClientModule } from '@angular/common/http';
 
+  ///  very very important
+import { FormsModule } from '@angular/forms';
+
 describe('FormComponent', () => {
   let component: FormComponent;
   // with fixture can we get data from componentInstance
@@ -15,7 +18,7 @@ describe('FormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FormComponent],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, FormsModule],  /// important
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormComponent);
@@ -30,7 +33,7 @@ describe('FormComponent', () => {
   it('endpoint value', () => {
     // expect(component.endpoint).toBe("");
     // fixture.componentInstance.endpoint;
-    expect(fixture.componentInstance.endpoint).toBe("");
+    expect(fixture.componentInstance.endpoint).toEqual("");
 
   });
 

@@ -2,19 +2,49 @@
 
 .cards-container {
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    background-color: coral;
-    width: 100%;
-    gap: 1rem;
+    /* background-color: coral; */
+    gap: 2rem;
+    margin-bottom: 15rem;
 } 
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    line-height: 2rem;
 }
 
 .card-img-top {
     width: 50%;
+}
+
+.card-body h6, div {
+    text-align: center;
+
+}
+
+.card-detail-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.card-detail-button button {
+    border: 1px solid rgb(8, 131, 255);
+    background-color: white;
+    color: rgb(8, 131, 255);
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+.card-detail-button button:hover {
+    background-color: rgb(8, 131, 255);
+    color: white;
 }

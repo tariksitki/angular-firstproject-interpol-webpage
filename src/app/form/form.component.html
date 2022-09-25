@@ -1,71 +1,73 @@
-<!-- radio larin bilgisini gönderme sebebi radio larda yazdigimiz ngModel -->
-<form
+
+
+<div class="form-container"> 
+  <form
   class="form"
-  #myForm="ngForm"
-  (submit)="
-    templateForm(
-      lastname.value,
-      firstname.value,
-      nationality.value,
-      myForm.value,
-      ageMin.value,
-      ageMax.value,
-      arrestWarrantCountryId.value,
-      keyword.value
-    );
-      lastname.value = '';
-      firstname.value = '';
-      nationality.value = '';
-      ageMin.value = '';
-      ageMax.value = '';
-      arrestWarrantCountryId.value = '';
-      keyword.value = '';
-  "
+  (ngSubmit)="
+    onSubmit();"
   novalidate
 >
-  <h1 class="form-header">{{ title }}</h1>
 
-  <label for="name">Lastname</label> <br />
-  <input #lastname type="text" id="name" name="lastname" />
-  <br /><br />
+  <h2 translate class="form-header">{{ title }}</h2>
 
-  <label for="firstname">Firstname</label> <br />
-  <input #firstname type="text" id="firstname" name="firstname" />
-  <br /><br />
+  <label translate for="name">Lastname</label> <br />
+  <input
+    class="form-input"
+    type="text"
+    id="name"
+    name="lastname"
+    [(ngModel)]="formValues.lastname"
+    #lastname="ngModel"
+  />
+  <br />
 
-  <label for="nationality">Nationality</label> <br />
-  <select #nationality name="nationality" id="nationality">
+  <label translate for="firstname">Firstname</label> <br />
+  <input
+    class="form-input"
+    type="text"
+    id="firstname"
+    name="firstname"
+    [(ngModel)]="formValues.forename"
+    #firstname="ngModel"
+  />
+  <br />
+
+  <label translate for="nationality">Nationality</label> <br />
+  <select
+    class="form-input"
+    name="nationality"
+    id="nationality"
+    [(ngModel)]="formValues.nationality"
+    #nationality="ngModel"
+  >
     <option value=""></option>
-    <option value="AF">Afghanistan</option>
-    <option value="AL">Albania</option>
-    <option value="DZ">Algeria</option>
-    <option value="AS">American Samoa</option>
-    <option value="AD">Andorra</option>
+    <option *ngFor="let item of countryListArray" value="{{ item[0] }}" > {{ item[1] }} </option>
   </select>
 
-  <br /><br />
-  <p>Gender</p>
+  <br /> <br>
+  <label translate for="">Gender</label> <br>
   <input
     class="radio-button"
     type="radio"
     name="gender"
     id="all"
     value=""
-    ngModel
     checked
-    #gender
+    [(ngModel)]="formValues.gender"
+    #nationality="ngModel"
   />
-  <label for="all">All</label> <br />
-
+  <label translate for="all">All</label> <br />
+    
   <input
     class="radio-button"
     type="radio"
     name="gender"
     id="female"
     value="F"
-    ngModel
+    [(ngModel)]="formValues.gender"
+    #nationality="ngModel"
   />
-  <label for="female">Female</label> <br />
+  <label translate for="female">Female</label> <br />
 
   <input
     class="radio-button"
@@ -73,9 +75,10 @@
     name="gender"
     id="male"
     value="M"
-    ngModel
+    [(ngModel)]="formValues.gender"
+    #nationality="ngModel"
   />
-  <label for="male">Male</label> <br />
+  <label translate for="male">Male</label> <br />
 
   <input
     class="radio-button"
@@ -83,59 +86,45 @@
     name="gender"
     id="unknown"
     value="U"
-    ngModel
+    [(ngModel)]="formValues.gender"
+    #nationality="ngModel"
   />
-  <label for="unknown">Unknown</label> <br />
+  <label translate for="unknown">Unknown</label> <br />
   <br />
 
-  <label for="">Current Age</label> <br />
-  <input #ageMin type="number" name="ageMin" id="ageMin" />
-  <span>to</span>
-  <input #ageMax type="number" name="ageMax" id="ageMax" />
+  <label translate for="">Current Age</label>
+  <div class="age-container">
+    <div>
+      <label translate for="ageMin">from</label>
+      <input translate [(ngModel)]="formValues.ageMin" class="age-input"
+    #ageMin="ngModel" type="number" name="ageMin" id="ageMin"/>
+    </div>
+    <div>
+      <label translate for="ageMax">to</label>
+      <input translate [(ngModel)]="formValues.ageMax" class="age-input"
+    #ageMax="ngModel" type="number" name="ageMax" id="ageMax"/>
+    </div>
+  </div>
 
-  <br /><br />
-
-  <label for="arrestWarrantCountryId">Wanted By</label> <br />
+  <label translate for="arrestWarrantCountryId">Wanted By</label> <br />
   <select
-    #arrestWarrantCountryId
+    class="form-input"
+    [(ngModel)]="formValues.arrestWarrantCountryId"
+    #arrestWarrantCountryId="ngModel"
     name="arrestWarrantCountryId"
     id="arrestWarrantCountryId"
   >
     <option value=""></option>
-    <option value="AF">Afghanistan</option>
-    <option value="AL">Albania</option>
-    <option value="DZ">Algeria</option>
-    <option value="AS">American Samoa</option>
-    <option value="AD">Andorra</option>
+    <option *ngFor="let item of countryListArray" value="{{ item[0] }}" > {{ item[1] }} </option>
   </select>
 
-  <br /><br />
-  <label for="keyword">Keyword</label> <br />
-  <input #keyword type="text" name="keyword" id="keyword" />
+  <br />
+  <label translate for="keyword">Keyword</label> <br />
+  <input class="form-input" type="text" name="keyword" id="keyword" [(ngModel)]="formValues.keyword" #keyword="ngModel" />
 
   <br /><br />
 
-  <!-- <input
-    type="submit"
-    value="Search"
-    (click)="getConsole($event, name.value, firstname.value, nationality.value)"
-  /> -->
-
-  <button
-    type="submit"
-    class=""
-    
-  >
-    Find out gender
-  </button>
+  <button translate type="submit" class="form-button">SEARCH</button>
 </form>
-
-<!-- <ul class="list-group">
-  <li 
-      *ngFor="let post of posts"
-      class="list-group-item">
-      {{ post.title }}
-  </li>
-</ul> -->
-
+</div>
 

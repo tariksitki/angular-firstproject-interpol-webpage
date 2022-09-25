@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   // when component download trigger automatic
   ngOnInit() {
     this.getPosts();
-    console.log(this.endpoint);
+    // console.log(this.endpoint);
   }
   // receive value from child component(from form Component)
   receiveValue($event: any) {
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.getPosts();
     // console.log($event)
     // console.log(this.endpoint)
+    console.log(this.responseFromApi);
   }
 
   getPosts() {
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
       next: (response) => {
         this.responseFromApi = response;
         // console.log(this.endpoint)
-        console.log(this.responseFromApi);
+        // console.log(this.responseFromApi);
       
       },
       error: (error) => {

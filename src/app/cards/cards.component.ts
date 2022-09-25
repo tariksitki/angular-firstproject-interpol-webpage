@@ -3,6 +3,7 @@ import { countryListArray, countryListObj } from 'src/helpers/countryList';
   // router
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -16,6 +17,7 @@ export class CardsComponent implements OnInit {
   countryListArray = countryListArray;
 
   @Input() responseFromApi: any;
+
 
   ngOnInit(): void {
     

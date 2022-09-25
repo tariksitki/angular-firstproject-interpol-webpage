@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AppComponent } from '../app-component/app.component';
 import { PostService } from '../services/post.service';
+import { countryListArray } from "../../helpers/countryList";
 
 @Component({
   selector: 'app-form',
@@ -14,6 +14,17 @@ export class FormComponent implements OnInit {
   title = 'Filter Criteria';
   endpoint: any;
   responseFromApi: any;
+  countryListArray = countryListArray;
+  formValues = {
+    lastname: '',
+    forename: '',
+    nationality: '',
+    gender: '',
+    ageMin: '',
+    ageMax: '',
+    arrestWarrantCountryId: '',
+    keyword: '',
+  };
 
   // to send data to home.component: (from child to parent component)
   @Output() formEvent = new EventEmitter<any>();
@@ -22,30 +33,37 @@ export class FormComponent implements OnInit {
     // this.getPosts();
   }
 
-  templateForm(
-    lastname: string,
-    firstname: string,
-    nationality: string,
-    value: any,
-    ageMin: string,
-    ageMax: string,
-    arrestWarrantCountryId: string,
-    keyword: string
-  ) {
-    this.endpoint = `?${firstname && `forename=${firstname}`}${
-      lastname && `&name=${lastname}`
-    }${nationality && `&nationality=${nationality}`}${
-      value.gender && `&sexId=${value.gender}`
-    }${ageMin && `&ageMin=${ageMin}`}${ageMax && `&ageMax=${ageMax}`}${
-      arrestWarrantCountryId &&
-      `&arrestWarrantCountryId=${arrestWarrantCountryId}`
-    }${keyword && `&freeText=${keyword}`}&page=1&resultPerPage=160`;
+  onSubmit() {
+    this.endpoint = `?${
+      this.formValues.forename && `forename=${this.formValues.forename}`
+    }${this.formValues.lastname && `&name=${this.formValues.lastname}`}${
+      this.formValues.nationality &&
+      `&nationality=${this.formValues.nationality}`
+    }${this.formValues.gender && `&sexId=${this.formValues.gender}`}${
+      this.formValues.ageMin && `&ageMin=${this.formValues.ageMin}`
+    }${this.formValues.ageMax && `&ageMax=${this.formValues.ageMax}`}${
+      this.formValues.arrestWarrantCountryId &&
+      `&arrestWarrantCountryId=${this.formValues.arrestWarrantCountryId}`
+    }${
+      this.formValues.keyword && `&freeText=${this.formValues.keyword}`
+    }&page=1&resultPerPage=20`;
 
-    // this.getPosts();
-    console.log(this.endpoint)
+    console.log();
 
-      /// send data from child component to parent component
-    this.formEvent.emit(this.endpoint)
+    /// send data from child component to parent component (to home component)
+    this.formEvent.emit(this.endpoint);
+
+    console.log(this.formValues);
+    this.formValues = {
+      lastname: '',
+      forename: '',
+      nationality: '',
+      gender: '',
+      ageMin: '',
+      ageMax: '',
+      arrestWarrantCountryId: '',
+      keyword: '',
+    };
   }
 
   // getPosts() {

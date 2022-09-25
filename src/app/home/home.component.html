@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-        <div class="container">
+    <!-- <app-navbar></app-navbar> -->
+
+    <div class="home-container">
         <div class="main-form">
                 <!-- receive value from child component from form component -->
             <app-form (formEvent) = "receiveValue($event)" ></app-form>
@@ -18,5 +20,7 @@
             <app-cards [responseFromApi] = "responseFromApi" ></app-cards>
         </div>
     </div>
+
+    <app-footer></app-footer>
 </body>
 </html>
