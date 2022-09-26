@@ -45,7 +45,7 @@ describe('DetailsComponent', () => {
   });
 
 
-  it('should render cards Years Old', () => {
+  it('should render cards Language Spoken', () => {
     const fixture = TestBed.createComponent(DetailsComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;

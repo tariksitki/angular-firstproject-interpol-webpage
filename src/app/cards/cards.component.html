@@ -4,16 +4,16 @@
     style="width: 18rem"
     *ngFor="let person of responseFromApi?._embedded?.notices"
   >
-    <img
+    <!-- <img
       src="../../assets/avatar.jpg"
       class="card-img-top"
       alt="person-image"
-    />
-    <!-- <img
+    /> -->
+    <img
       src="{{ person?._links?.thumbnail?.href }}"
       class="card-img-top"
       alt="person-image"
-    /> -->
+    />
 
     <div class="card-body">
       <h6 class="card-title">{{ person?.name }}</h6>
