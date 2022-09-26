@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
   constructor() {}
     // send data from child to parent:
   @Output() msgEvent = new EventEmitter<string>(); // data from child to parent
+  
   language = "";
 
   ngOnInit(): void {

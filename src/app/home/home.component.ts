@@ -9,7 +9,7 @@ import { PostService } from '../services/post.service';
 export class HomeComponent implements OnInit {
   endpoint: string = '';
   responseFromApi: any;
-  responseFromImageApi : any;
+  // responseFromImageApi : any;
 
   // definition:
   constructor(private postService: PostService) {}
@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
     this.endpoint = $event;
     this.getPosts();
     // console.log($event)
-    // console.log(this.endpoint)
-    // console.log(this.responseFromApi);
   }
 
   getPosts() {
@@ -43,16 +41,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getImages() {
-    // hier trigger a method from postService
-    this.postService.getImages(this.endpoint?.replace('/', '-')).subscribe({
-      next: (response) => {
-        this.responseFromApi = response;
-        console.log(this.responseFromApi);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
+  // getImages() {
+  //   // hier trigger a method from postService
+  //   this.postService.getImages(this.endpoint?.replace('/', '-')).subscribe({
+  //     next: (response) => {
+  //       this.responseFromApi = response;
+  //       console.log(this.responseFromApi);
+  //     },
+  //     error: (error) => {
+  //       console.log(error);
+  //     },
+  //   });
+  // }
 }

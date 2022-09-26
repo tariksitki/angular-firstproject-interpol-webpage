@@ -7,10 +7,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class PostService {
-  // before @inject
-  // public url = 'http://jsonplaceholder.typicode.com/posts';
 
+export class PostService {
   // constructor() {}
   constructor(
         // describe apiUrl in app.module.ts:
@@ -36,11 +34,11 @@ export class PostService {
   }
 
   /////// get images:
-  getImages(endpoint: any) {
-    return (
-      // console.log(`${this.apiUrl}${endpoint}`),
+  // getImages(endpoint: any) {
+  //   return (
+  //     // console.log(`${this.apiUrl}${endpoint}`),
 
-      this.httpClient.get(`${this.apiUrl}/${endpoint ? endpoint : ''}`)
-    );
-  }
+  //     this.httpClient.get(`${this.apiUrl}/${endpoint ? endpoint : ''}`)
+  //   );
+  // }
 }

@@ -65,3 +65,15 @@
     flex-direction: column;
 
 }
+
+.detail-years-div {
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+
+}
+
+.detail-year-span {
+    font-weight: 400;
+
+}

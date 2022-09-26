@@ -7,7 +7,18 @@
     man ordnet Routes, paths, forroot
 2: in app.module.ts Datei  schreib man AppRoutingModule  in imports
 3: in app.component.html   <router-outlet><router-outlet> 
-
+4: cards component html 
+<a
+        class="card-detail-button"
+        [routerLink]="[
+          '/details',
+          person?.entity_id,
+          { state: person.entity_id }
+        ]"
+      >
+5: details component.ts : 
+private route: ActivatedRoute (in constructor)
+this.endpoint = route.snapshot.paramMap.get('state');
 
     ########################
     ## Translate:
@@ -69,7 +80,7 @@ public onChange(selectedLanguage: string): void {
 7: benutzen Translate:
 
 1. Method:  <th translate>key</th>    translate directive method
-2: Method: <h3>{{ "keywordDefinition" | translate }}</h3>
+2: Method: <h3>{{ "keywordDefinition" | translate }}</h3>   // pipe method
 3: Method: <td>example5.fromTypeScript</td>    with func in app.component.ts 
 
 

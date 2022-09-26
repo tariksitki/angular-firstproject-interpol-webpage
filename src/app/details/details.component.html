@@ -7,12 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <app-navbar></app-navbar> -->
-
     <div class="container">
         <div class="detail-image-div">
             <img src="../../assets/avatar.jpg" alt="detail-image">
         </div>
+
+        <!-- <div class="detail-image-div">
+            <img src="{{ responseFromApi?._links?.thumbnail?.href }}" alt="detail-image">
+        </div> -->
 
         <section class="detail-section-one">
             <h3 translate id="detail-identity-header">Identity Particulars</h3>
@@ -31,8 +33,13 @@
             </div>
             <div>
                 <span translate>Date of Birth</span>
-                <p> : {{ responseFromApi?.date_of_birth }} {{ 2022 - (+responseFromApi?.date_of_birth.slice(0, 4))}}  </p>
-                <p translate>Years Old</p>
+                <div class="detail-years-div">
+                    <span style="font-weight: 400;"> : {{ responseFromApi?.date_of_birth }}</span>
+                    <div>
+                        <span style="font-weight: 400;">{{ 2022 - (+responseFromApi?.date_of_birth.slice(0, 4))}}</span>
+                        <span translate style="font-weight: 400;">Years Old</span>
+                    </div>
+                </div>
             </div>
             <div>
                 <span translate id="detail-placebirth">Place of Birth</span>
@@ -81,8 +88,6 @@
             </div>
         </section>
     </div>
-
-    <app-footer></app-footer>
 </body>
 </html>
 

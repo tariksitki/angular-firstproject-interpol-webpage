@@ -9,7 +9,6 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-  // params: string | null;
   endpoint: string | null; // maybe is null
   responseFromApi: any;
 
