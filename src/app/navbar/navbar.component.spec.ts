@@ -20,4 +20,40 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should render h1 title Interpol', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.header-h1')?.textContent).toContain(
+      'INTERPOL'
+    );
+  });
+
+  it('should render navbar button "Who We Are"', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#who')?.textContent).toContain(
+      'Who We Are'
+    );
+  });
+
+
+  it('should render navbar button "News"', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#news')?.textContent).toContain('News');
+  });
+
+
+  
+  it('should render navbar button "Languages English"', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#english')?.textContent).toContain('EN');
+  });
 });

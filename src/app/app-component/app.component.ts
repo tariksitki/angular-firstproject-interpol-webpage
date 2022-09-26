@@ -10,40 +10,26 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-// export class AppComponent {
-//   title = 'project';
-// }
 
-/// our code
 export class AppComponent implements OnInit {
-  // endpoint: any;
-  // responseFromApi: any;
-  // definition:
+  title = 'project';
+  language = '';
+  
   constructor(
     private postService: PostService,
     public translateService: TranslateService // translate inject
   ) {
     this.translateService.addLangs(['en', 'fr']);
   }
-    // example for translate:
-  public get translationFormTypeScript(): string {
-    return this.translateService.instant('example5.fromTypeScript');
-  }
-    // for translate:
-  public onChange(selectedLanguage: string): void {
-    this.translateService.use(selectedLanguage);
-  }
-
-  // when component download trigger automatic
+  
+  // when component download, trigger automatic
   ngOnInit() {
-    // this.getPosts();
   }
-  language = "";
 
-    // get data from child element (from navbar component):
-  receiveValue($event : any) {
-    this.language = $event
-    console.log(this.language)
+  // get data from child element (from navbar component):
+  receiveValue($event: any) {
+    this.language = $event;
     this.translateService.use(this.language);
+    // console.log(this.language);
   }
 }

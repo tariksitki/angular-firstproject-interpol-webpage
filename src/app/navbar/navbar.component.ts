@@ -7,9 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
     // send data from child to parent:
-  @Output() msgEvent = new EventEmitter<string>();
+  @Output() msgEvent = new EventEmitter<string>(); // data from child to parent
   language = "";
 
   ngOnInit(): void {
@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
 
   changeLanguage(value : any) {
-    console.log(value.innerHTML.toLowerCase());
+    // console.log(value.innerHTML.toLowerCase());
     this.language = value.innerHTML.toLowerCase();
     this.msgEvent.emit(this.language);
   }

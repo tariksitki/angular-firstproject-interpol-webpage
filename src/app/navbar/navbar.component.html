@@ -23,28 +23,27 @@
       <div class="buttons-div" >
         <ul class="navbar-nav">
         <li class="nav-item">
-          <a translate class="nav-link active" aria-current="page" href="#">Who We Are</a>
+          <a translate id="who" class="nav-link active" aria-current="page">Who We Are</a>
         </li>
         <li class="nav-item">
-          <a translate class="nav-link" href="#">Crimes</a>
+          <a translate class="nav-link">Crimes</a>
         </li>
         <li class="nav-item">
-          <a translate class="nav-link" href="#">How We Work</a>
+          <a translate class="nav-link">How We Work</a>
         </li>
         <li class="nav-item">
-          <a translate class="nav-link" href="#">Our Partners</a>
+          <a translate class="nav-link">Our Partners</a>
         </li>
         <li class="nav-item">
-          <a translate class="nav-link" href="#">What You Can Do</a>
+          <a translate class="nav-link">What You Can Do</a>
         </li>
         <li class="nav-item">
-          <a translate class="nav-link" href="#">News </a>
+          <a translate id="news" class="nav-link">News </a>
         </li>
         <li class="nav-item dropdown">
           <a
             translate
             class="nav-link dropdown-toggle"
-            href="#"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -54,6 +53,7 @@
           <ul class="dropdown-menu">
             <li>
               <a
+                id="english"
                 #english
                 class="dropdown-item"
                 (click)="changeLanguage(english)"
@@ -74,5 +74,5 @@
 </nav>
 
 <header class="header">
-        <h1>INTERPOL</h1>
+        <h1 class="header-h1">INTERPOL</h1>
 </header>

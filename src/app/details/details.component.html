@@ -15,7 +15,7 @@
         </div>
 
         <section class="detail-section-one">
-            <h3 translate>Identity Particulars</h3>
+            <h3 translate id="detail-identity-header">Identity Particulars</h3>
             <div class="detail-section-one-inner">
                 <div>
                 <span translate>Lastname</span>
@@ -35,7 +35,7 @@
                 <p translate>Years Old</p>
             </div>
             <div>
-                <span translate>Place of Birth</span>
+                <span translate id="detail-placebirth">Place of Birth</span>
                 <p> : {{ responseFromApi?.place_of_birth ? responseFromApi?.place_of_birth : "Unknown" }} </p>
             </div>
             <div>
@@ -64,7 +64,7 @@
             <h3 translate>Details</h3>
             <div class="detail-section-three-inner">
                 <div>
-                    <span translate>Language Spoken</span>
+                    <span translate id="detail-language">Language Spoken</span>
                     <p> : {{ responseFromApi?.languages_spoken_ids ? responseFromApi?.languages_spoken_ids : "Unknown" }} </p>
                 </div>
             </div>

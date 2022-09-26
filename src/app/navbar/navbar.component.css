@@ -13,17 +13,13 @@
 
 .buttons-div ul li a{
     text-align: center;
+    color: darkblue;
 }
 
 .navbar-nav {
     width: 60%;
     display: flex;
     justify-content: space-around;
-}
-
-ul li a {
-    color: darkblue;
-    
 }
 
 .header {

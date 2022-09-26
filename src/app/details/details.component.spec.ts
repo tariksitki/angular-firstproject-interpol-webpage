@@ -23,4 +23,34 @@ describe('DetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should render cards Years Old', () => {
+    const fixture = TestBed.createComponent(DetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(
+      compiled.querySelector('#detail-identity-header')?.textContent
+    ).toContain('Identity Particulars');
+  });
+
+
+  it('should render cards Years Old', () => {
+    const fixture = TestBed.createComponent(DetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#detail-placebirth')?.textContent).toContain(
+      'Place of Birth'
+    );
+  });
+
+
+  it('should render cards Years Old', () => {
+    const fixture = TestBed.createComponent(DetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#detail-language')?.textContent).toContain(
+      'Language Spoken'
+    );
+  });
 });

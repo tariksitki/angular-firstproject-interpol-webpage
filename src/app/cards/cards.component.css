@@ -48,3 +48,16 @@
     background-color: rgb(8, 131, 255);
     color: white;
 }
+
+.no-content-div {
+    width: 100%;
+    height: 50vh;
+    background-color: #4e8bc8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    
+}

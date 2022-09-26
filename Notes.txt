@@ -1,0 +1,126 @@
+
+################## Angular Notes ###################
+
+    ## Router:
+
+1: in  app-routing.module.ts  schreib man notwendigen Codes.
+    man ordnet Routes, paths, forroot
+2: in app.module.ts Datei  schreib man AppRoutingModule  in imports
+3: in app.component.html   <router-outlet><router-outlet> 
+
+
+    ########################
+    ## Translate:
+1: npm install @ngx-translate/core --save
+2: npm install @ngx-translate/http-loader --save
+3: in app.module.ts:
+    import { HttpClient, HttpClientModule } from "@angular/common/http";
+    import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+    import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+
+    export function HttpLoaderFactory(httpClient: HttpClient) {
+    return new TranslateHttpLoader(httpClient);
+}
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: "en"
+    })
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+
+4: create new File in assets/i18n/en.json  assets/i18n/fr.json
+5: ordnen diese json Files
+6: in app.component.ts:
+
+import { TranslateService } from "@ngx-translate/core";
+
+constructor(public translateService: TranslateService) {
+    this.translateService.addLangs(["fr", "en"]);
+  }
+
+  language = '';
+
+    //  example func:
+public onChange(selectedLanguage: string): void {
+    this.translateService.use(selectedLanguage);
+  }
+
+    // our Func:  (languagedata come from Navbar Component with button)
+  receiveValue($event: any) {
+    this.language = $event;
+    this.translateService.use(this.language);
+  }
+
+
+7: benutzen Translate:
+
+1. Method:  <th translate>key</th>    translate directive method
+2: Method: <h3>{{ "keywordDefinition" | translate }}</h3>
+3: Method: <td>example5.fromTypeScript</td>    with func in app.component.ts 
+
+
+
+
+
+
+
+
+        ###########################
+        ### data from parentcomponent to childcomponent:
+
+1: create a variable in child component.ts file 
+@Input() dataFromParentComponent : string;     // string 
+
+2: in app.component.html:
+    <app-child [dataFromParentComponent] = "parentData" ></app-child>
+    (parentData is a variable in app.component.ts and we send this data to child)
+
+
+
+
+        #################################
+        ### data from child component to parent component: (we make this with event)
+
+1: in app.component.ts create a variable named  dataFromChildComponent : string;
+2: child component.html
+    <button (click) = "emitChild()" ></button>
+3: in child.component.ts   create a eventemitter, func and variable:
+    childData = "I am from Child Component"
+    @Output() msgEvent = new EventEmitter<string>();   
+        // func:
+    emitChild() {
+        this.msgEvent.emit(this.childData);
+    }
+
+4: app.component.ts :
+
+dataFromChildComponent : string;
+
+receiveValue($event) {
+    this.dataFromChildComponent = $event;
+}
+
+
+5: app.component.html : 
+
+<app-child (msgEvent) = "receiveValue($event)"></app-child>
+
+
+
+
+
+

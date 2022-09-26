@@ -15,6 +15,7 @@ export class FormComponent implements OnInit {
   endpoint: any;
   responseFromApi: any;
   countryListArray = countryListArray;
+
   formValues = {
     lastname: '',
     forename: '',
@@ -30,7 +31,6 @@ export class FormComponent implements OnInit {
   @Output() formEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
-    // this.getPosts();
   }
 
   onSubmit() {
@@ -48,12 +48,11 @@ export class FormComponent implements OnInit {
       this.formValues.keyword && `&freeText=${this.formValues.keyword}`
     }&page=1&resultPerPage=20`;
 
-    console.log();
-
     /// send data from child component to parent component (to home component)
     this.formEvent.emit(this.endpoint);
 
     console.log(this.formValues);
+
     this.formValues = {
       lastname: '',
       forename: '',
@@ -65,17 +64,4 @@ export class FormComponent implements OnInit {
       keyword: '',
     };
   }
-
-  // getPosts() {
-  //   // hier trigger a method from postService
-  //   this.postService.getPosts(this.endpoint).subscribe({
-  //     next: (response) => {
-  //       this.responseFromApi = response;
-  //       console.log(this.responseFromApi);
-  //     },
-  //     error: (error) => {
-  //       console.log(error);
-  //     },
-  //   });
-  // }
 }

@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getPosts();
     // console.log(this.endpoint);
+    
   }
   // receive value from child component(from form Component)
   receiveValue($event: any) {
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.getPosts();
     // console.log($event)
     // console.log(this.endpoint)
-    console.log(this.responseFromApi);
+    // console.log(this.responseFromApi);
   }
 
   getPosts() {
@@ -33,9 +34,8 @@ export class HomeComponent implements OnInit {
     this.postService.getPosts(this.endpoint).subscribe({
       next: (response) => {
         this.responseFromApi = response;
+        console.log(this.responseFromApi);
         // console.log(this.endpoint)
-        // console.log(this.responseFromApi);
-      
       },
       error: (error) => {
         console.log(error);

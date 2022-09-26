@@ -8,9 +8,9 @@
   novalidate
 >
 
-  <h2 translate class="form-header">{{ title }}</h2>
+  <h2 class="form-header">{{ title }}</h2>
 
-  <label translate for="name">Lastname</label> <br />
+  <label translate id="form-lastname-label" for="name">Lastname</label> <br />
   <input
     class="form-input"
     type="text"
@@ -41,7 +41,7 @@
     #nationality="ngModel"
   >
     <option value=""></option>
-    <option *ngFor="let item of countryListArray" value="{{ item[0] }}" > {{ item[1] }} </option>
+    <option id="form-nationality-options" *ngFor="let item of countryListArray" value="{{ item[0] }}" > {{ item[1] }} </option>
   </select>
 
   <br /> <br>
@@ -78,7 +78,7 @@
     [(ngModel)]="formValues.gender"
     #nationality="ngModel"
   />
-  <label translate for="male">Male</label> <br />
+  <label translate id="form-label-male" for="male">Male</label> <br />
 
   <input
     class="radio-button"
@@ -115,7 +115,7 @@
     id="arrestWarrantCountryId"
   >
     <option value=""></option>
-    <option *ngFor="let item of countryListArray" value="{{ item[0] }}" > {{ item[1] }} </option>
+    <option id="form-wanted-options" *ngFor="let item of countryListArray" value="{{ item[0] }}" > {{ item[1] }} </option>
   </select>
 
   <br />

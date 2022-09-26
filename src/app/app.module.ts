@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 /////// translate:
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
     // we use default informations from ngx-translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -44,8 +45,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       defaultLanguage: 'en',
     }),
   ],
+  exports: [TranslateModule],
   providers: [
-    // our code;
     HttpClientModule,
     {
       provide: 'apiUrl',
